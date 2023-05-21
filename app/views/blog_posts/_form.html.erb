@@ -1,0 +1,22 @@
+
+<%= form_with model: @blog_post do |f| %>
+    <% if @blog_post.errors.any? %>
+      <div class="alert alert-danger">
+        <h4><%= pluralize(@blog_post.errors.count, "error") %> prohibited this post from being saved:</h4>
+        <ul>
+          <% @blog_post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+    </div>
+    <%= f.submit %>
+<% end %>
